@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">lib_commom</string>
+
+    <!--  权限 -->
+    <string name="tedpermission_setting">设置</string>
+    <string name="tedpermission_close">关闭</string>
+    <string name="tedpermission_confirm">确认</string>
+</resources>

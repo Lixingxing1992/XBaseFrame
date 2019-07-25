@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.xx.base.org">
+    <application>
+        <!--权限-->
+        <activity android:name="com.xx.base.org.tedpermission.activity.TedPermissionActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:theme="@style/BaseAppTranslucent"/>
+    </application>
+
+</manifest>
