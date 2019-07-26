@@ -10,7 +10,7 @@
 
 ## 框架详细介绍 ##
 
-[点击查看简书](https://www.showdoc.cc/xbaseframe?page_id=2555983578312315)
+[点击查看框架库详细文档](https://www.showdoc.cc/xbaseframe?page_id=2555983578312315)
 
 
 大家喜欢该框架的请在github上点个星星,谢谢~~
