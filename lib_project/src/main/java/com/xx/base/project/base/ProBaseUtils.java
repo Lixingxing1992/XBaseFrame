@@ -33,18 +33,16 @@ public class ProBaseUtils {
 
         // 初始化全局基础工具类
         BaseUtils.init(context);
-
         // 初始化nosql数据库
         BaseLocalDbUtils.init(context);
         // 设置网络请求
 //        BaseHttpUtils.init(context,BuildConfig.DEBUG);
 //        BaseHttpUtils.init(TDHttpService.class,TDDataListener.class);
 //        BaseHttpUtils.initFile(DefaultFileService.class,TDDataListener.class);
-        // 设置项目图片加载库
+        // 设置项目图片加载库 默认 Glide
         BaseImageUtils.init(new GlideUtils());
-
         // 设置项目在SD卡上的文件夹名称
-//        ProFileConfig.init("xbaseframe","xbaseframe_default");
+        ProFileConfig.init("xbaseframe","xbaseframe_default");
         // 设置状态栏默认颜色
         BaseStatusBarUtils.init(Color.parseColor("#ff9480"),0);
 
