@@ -14,11 +14,14 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+
 /**
- * ImageView 控件，实现了手势放大缩小，平移等功能。PinchImageView 继承于 ImageView，可以在所有 ImageView 可以使用的情况下使用
+ * ImageView 控件，实现了手势放大缩小，
+ * 平移等功能。PinchImageView 继承于 ImageView，
+ * 可以在所有 ImageView 可以使用的情况下使用
  * Created by lixingxing on 2019/6/28.
  */
-public class PinchImageView extends ImageView  {
+public class BasePinchImageView extends ImageView  {
 
     ////////////////////////////////配置参数////////////////////////////////
     /**
@@ -245,7 +248,7 @@ public class PinchImageView extends ImageView  {
      */
     @Override
     public boolean canScrollHorizontally(int direction) {
-        if (mPinchMode == PinchImageView.PINCH_MODE_SCALE) {
+        if (mPinchMode == BasePinchImageView.PINCH_MODE_SCALE) {
             return true;
         }
         RectF bound = getImageBound(null);
@@ -269,7 +272,7 @@ public class PinchImageView extends ImageView  {
      */
     @Override
     public boolean canScrollVertically(int direction) {
-        if (mPinchMode == PinchImageView.PINCH_MODE_SCALE) {
+        if (mPinchMode == BasePinchImageView.PINCH_MODE_SCALE) {
             return true;
         }
         RectF bound = getImageBound(null);
@@ -402,7 +405,7 @@ public class PinchImageView extends ImageView  {
          * @see #getCurrentImageMatrix(Matrix)
          * @see #getImageBound(RectF)
          */
-        void onOuterMatrixChanged(PinchImageView pinchImageView);
+        void onOuterMatrixChanged(BasePinchImageView pinchImageView);
     }
 
     /**
@@ -566,17 +569,17 @@ public class PinchImageView extends ImageView  {
 
     ////////////////////////////////初始化////////////////////////////////
 
-    public PinchImageView(Context context) {
+    public BasePinchImageView(Context context) {
         super(context);
         initView();
     }
 
-    public PinchImageView(Context context, AttributeSet attrs) {
+    public BasePinchImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initView();
     }
 
-    public PinchImageView(Context context, AttributeSet attrs, int defStyle) {
+    public BasePinchImageView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initView();
     }
@@ -768,8 +771,9 @@ public class PinchImageView extends ImageView  {
      *
      * 在onTouchEvent末尾被执行.
      */
-    private GestureDetector mGestureDetector = new GestureDetector(PinchImageView.this.getContext(), new GestureDetector.SimpleOnGestureListener() {
+    private GestureDetector mGestureDetector = new GestureDetector(BasePinchImageView.this.getContext(), new GestureDetector.SimpleOnGestureListener() {
 
+        @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
             //只有在单指模式结束之后才允许执行fling
             if (mPinchMode == PINCH_MODE_FREE && !(mScaleAnimator != null && mScaleAnimator.isRunning())) {
@@ -777,14 +781,14 @@ public class PinchImageView extends ImageView  {
             }
             return true;
         }
-
+        @Override
         public void onLongPress(MotionEvent e) {
             //触发长按
             if (mOnLongClickListener != null) {
-                mOnLongClickListener.onLongClick(PinchImageView.this);
+                mOnLongClickListener.onLongClick(BasePinchImageView.this);
             }
         }
-
+        @Override
         public boolean onDoubleTap(MotionEvent e) {
             //当手指快速第二次按下触发,此时必须是单指模式才允许执行doubleTap
             if (mPinchMode == PINCH_MODE_SCROLL && !(mScaleAnimator != null && mScaleAnimator.isRunning())) {
@@ -792,11 +796,11 @@ public class PinchImageView extends ImageView  {
             }
             return true;
         }
-
+        @Override
         public boolean onSingleTapConfirmed(MotionEvent e) {
             //触发点击
             if (mOnClickListener != null) {
-                mOnClickListener.onClick(PinchImageView.this);
+                mOnClickListener.onClick(BasePinchImageView.this);
             }
             return true;
         }
@@ -1355,7 +1359,6 @@ public class PinchImageView extends ImageView  {
          *
          * @return 可用的对象
          *
-         * @see #given(Object)
          */
         public T take() {
             //如果池内为空就创建一个

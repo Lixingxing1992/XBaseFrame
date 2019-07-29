@@ -8,6 +8,7 @@ import com.xx.base.org.util.BaseUtils;
 import com.xx.base.org.util.image.BaseImageUtils;
 import com.xx.base.org.util.image.impl.GlideUtils;
 import com.xx.base.project.config.ProFileConfig;
+import com.xx.base.ui.BaseUIUtils;
 
 /**
  * 项目基础设置（各种类库的一些初始化）
@@ -33,6 +34,10 @@ public class ProBaseUtils {
 
         // 初始化全局基础工具类
         BaseUtils.init(context);
+
+        // 初始化全局UI工具类
+        BaseUIUtils.init(context);
+
         // 初始化nosql数据库
         BaseLocalDbUtils.init(context);
         // 设置网络请求

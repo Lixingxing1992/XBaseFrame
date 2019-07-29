@@ -1,59 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--&lt;!&ndash; Base application theme. &ndash;&gt;-->
-    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
-        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
-        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
-        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-        <!--<item name="colorAccent">@color/colorAccent</item>-->
-    <!--</style>-->
+    <!-- 页面背景 -->
+    <style name="style_page_bg">
+        <item name="android:background">#f3f3f3</item>
+    </style>
+    <!--title背景-->
+    <style name="style_title_bg">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">@dimen/dp_44</item>
+    </style>
+    <style name="style_title_bg2">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_44</item>
+    </style>
+    <!--title文字-->
+    <style name="style_title_text">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">@dimen/dp_15</item>
+    </style>
 
-    <!--<style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
-        <!--<item name="windowNoTitle">true</item>-->
-        <!--<item name="android:windowBackground">@null</item>-->
-        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
-        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-        <!--<item name="colorAccent">@color/colorAccent</item>-->
-        <!--<item name="android:fitsSystemWindows">true</item>-->
-    <!--</style>-->
-    <!--<style name="BaseAppTheme2" parent="BaseAppTheme">-->
-        <!--<item name="android:fitsSystemWindows">false</item>-->
-    <!--</style>-->
-
-    <!--<style name="AppFullscreen" parent="@style/BaseAppTheme2">-->
-        <!--<item name="android:windowTranslucentStatus">true</item>-->
-        <!--<item name="android:fitsSystemWindows">false</item>-->
-        <!--<item name="android:windowTranslucentNavigation">false</item>-->
-    <!--</style>-->
-
-    <!--<style name="AppSplash" parent="@style/BaseAppTheme2">-->
-        <!--<item name="android:windowBackground">@mipmap/load</item>-->
-        <!--<item name="android:windowTranslucentStatus">true</item>-->
-        <!--<item name="android:fitsSystemWindows">false</item>-->
-        <!--<item name="android:windowTranslucentNavigation">false</item>-->
-    <!--</style>-->
-
-    <!--<style name="AppTranslucent" parent="@style/BaseAppTheme2">-->
-        <!--<item name="windowNoTitle">true</item>-->
-        <!--<item name="android:windowBackground">@android:color/transparent</item>-->
-        <!--<item name="android:colorBackgroundCacheHint">@null</item>-->
-        <!--<item name="android:windowIsTranslucent">true</item>-->
-        <!--<item name="android:windowTranslucentStatus">true</item>-->
-        <!--<item name="android:windowTranslucentNavigation">true</item>-->
-    <!--</style>-->
-
-    <!--<style name="FullscreenTheme" parent="BaseAppTheme2">-->
-        <!--<item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>-->
-        <!--<item name="android:windowActionBarOverlay">true</item>-->
-        <!--<item name="android:windowBackground">@null</item>-->
-        <!--<item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>-->
-        <!--<item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>-->
-    <!--</style>-->
-
-    <!--<style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">-->
-        <!--<item name="android:background">@color/black_overlay</item>-->
-    <!--</style>-->
 
     <style name="dialog_tran" parent="android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>

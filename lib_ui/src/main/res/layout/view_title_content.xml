@@ -2,10 +2,7 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
     <FrameLayout
             style="@style/style_title_bg"
-            android:id="@+id/layout_title_layout"
-            android:minHeight="@dimen/dp_44"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:id="@+id/layout_title_layout">
         <ImageView
                 android:id="@+id/layout_title_left"
                 android:layout_width="wrap_content"
