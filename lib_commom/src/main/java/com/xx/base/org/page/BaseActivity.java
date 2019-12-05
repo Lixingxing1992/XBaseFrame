@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
@@ -11,11 +12,14 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import com.xx.base.org.hook.BaseActivityHook;
 import com.xx.base.org.util.BaseActivityStack;
 import com.xx.base.org.util.BaseStatusBarUtils;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -24,17 +28,20 @@ import java.util.Map;
  * Created by lixingxing on 2019/4/16.
  */
 public abstract class BaseActivity extends AppCompatActivity{
-    Bundle savedInstanceState;
-    public Context baseContext;
-    public Map<String, BroadcastReceiver> broadcastReceiverMap = new HashMap<String, BroadcastReceiver>();
-    public FragmentManager manager;
+    protected Bundle savedInstanceState;
+    protected Context baseContext;
+    protected Map<String, BroadcastReceiver> broadcastReceiverMap = new HashMap<String, BroadcastReceiver>();
+    protected FragmentManager manager;
 
+    public boolean setStatusDark(){
+        return true;
+    }
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-//        initSwipeBackFinish();
+//        BaseActivityHook.hookOrientation(this);
         super.onCreate(savedInstanceState);
         this.savedInstanceState = savedInstanceState;
-        BaseStatusBarUtils.darkMode(this);
+        initStatuBar();
         if(null!=savedInstanceState){
             if(hasBundle(savedInstanceState)){
                 initActivity();
@@ -43,6 +50,13 @@ public abstract class BaseActivity extends AppCompatActivity{
             initActivity();
         }
     }
+
+    public void initStatuBar() {
+        if(setStatusDark()){
+            BaseStatusBarUtils.darkMode(this,true);
+        }
+    }
+
     /**
      * 如果有 savedInstanceState 执行的方法 。  一般Activity中 用onSaveInstanceState方法会用到
      *  return True的时候，会继续执行下面的代码 return False的时候，则不执行
@@ -183,7 +197,7 @@ public abstract class BaseActivity extends AppCompatActivity{
 
 
 
-    View focusView = null;
+    protected View focusView = null;
 
     public void setFocusView(View focusView) {
         this.focusView = focusView;
@@ -256,6 +270,35 @@ public abstract class BaseActivity extends AppCompatActivity{
             im.hideSoftInputFromWindow(token,
                     InputMethodManager.HIDE_NOT_ALWAYS);
         }
+    }
+
+
+    /**
+     * 隐藏虚拟按键，并且全屏
+     */
+    protected void hideBottomUIMenu() {
+        //隐藏虚拟按键，并且全屏
+//        if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
+//            View v = this.getWindow().getDecorView();
+//            v.setSystemUiVisibility(View.GONE);
+//        } else if (Build.VERSION.SDK_INT >= 19) {
+//            //for new api versions.
+//            View decorView = getWindow().getDecorView();
+//            int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+//                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN;
+//            decorView.setSystemUiVisibility(uiOptions);
+//        }
+        Window _window = getWindow();
+        WindowManager.LayoutParams params = _window.getAttributes();
+        params.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE;
+        _window.setAttributes(params);
+        _window.getDecorView().setOnSystemUiVisibilityChangeListener(
+                new View.OnSystemUiVisibilityChangeListener() {
+            @Override
+            public void onSystemUiVisibilityChange(int arg0) {
+                hideBottomUIMenu();
+            }
+        });
     }
 
 

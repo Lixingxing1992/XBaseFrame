@@ -14,8 +14,12 @@ import com.xx.base.org.util.BaseToastUtils
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 
+/**
+ * @author Lixingxing
+ */
 class MainActivity : BaseActivity() {
     var funcList = arrayListOf<FuncModel>(
+        FuncModel(0,"project库"),
         FuncModel(1,"基础库"),
         FuncModel(2,"基础UI库")
     )
@@ -35,6 +39,10 @@ class MainActivity : BaseActivity() {
                     helper.setText(R.id.func_btn,funcName)
                     helper.setOnClickListener(R.id.func_btn) {
                         when(funcId){
+                            1->{
+                                // project库
+                                baseContext.startActivity<LibActivity>()
+                            }
                             1->{
                                 // lib库
                                 baseContext.startActivity<LibActivity>()

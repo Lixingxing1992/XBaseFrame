@@ -8,16 +8,17 @@ import com.xx.base.org.page.BaseActivity
 import com.xx.base.org.superadapter.BaseSuperAdapter
 import com.xx.base.org.superadapter.SuperViewHolder
 import kotlinx.android.synthetic.main.default_list.*
+import kotlinx.android.synthetic.main.default_list.titleLayout
 import org.jetbrains.anko.startActivity
 
 /**
  * ImageView控件选择
- * Created by lixingxing on 2019/7/26.
+ * @author Lixingxing
  */
 class ImageViewActivity : BaseActivity() {
     var funcList = arrayListOf<FuncModel>(
         FuncModel(1, "BasePinchImageView")
-        , FuncModel(2,"")
+        , FuncModel(2,"BaseCircleImageView")
     )
 
     override fun initDefaultData(intent: Intent) {
@@ -29,7 +30,7 @@ class ImageViewActivity : BaseActivity() {
     }
 
     override fun initView() {
-        titleLayout.setDefault("ImageView")
+        titleLayout.setDefault("ImageView控件列表").setStatuBarView()
     }
 
     override fun getData() {
@@ -45,6 +46,8 @@ class ImageViewActivity : BaseActivity() {
                                 startActivity<ImageViewShowActivity>("type" to "BasePinchImageView")
                             }
                             2 ->{
+                                //BaseCircleImageView
+                                startActivity<ImageViewShowActivity>("type" to "BaseCircleImageView")
                             }
                         }
                     }

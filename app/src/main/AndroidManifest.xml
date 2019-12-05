@@ -24,6 +24,14 @@
         <activity android:name=".ui.UIActivity"
                   android:theme="@style/BaseAppTheme"
                   />
+        <!--BaseTitleLayout-->
+        <activity android:name=".ui.title.TitleLayoutActivity"
+                  android:theme="@style/BaseAppTheme"
+        />
+        <activity android:name=".ui.title.TitleLayoutActivity2"
+                  android:theme="@style/BaseAppTheme2"
+        />
+
         <!--ImageView控件-->
         <activity android:name=".ui.imageview.ImageViewActivity"
                   android:theme="@style/BaseAppTheme"

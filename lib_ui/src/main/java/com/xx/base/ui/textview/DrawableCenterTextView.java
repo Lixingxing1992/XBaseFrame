@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 
 /**
  * drawableLeft与文本一起居中显示
- * Created by lixingxing on 2019/5/15.
+ * @author Lixingxing
  */
 public class DrawableCenterTextView extends AppCompatTextView {
 

@@ -2,7 +2,7 @@ package com.xx.base.project.config;
 
 /**
  * 项目文件路径参数设置
- * Created by lixingxing on 2019/7/25.
+ * @author Lixingxing
  */
 public class ProFileConfig {
 

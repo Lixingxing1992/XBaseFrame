@@ -7,7 +7,7 @@ import com.xx.base.org.page.BaseActivity
 import kotlinx.android.synthetic.main.ui_imageview_show.*
 
 /**
- * Created by lixingxing on 2019/7/26.
+ * @author Lixingxing
  */
 class ImageViewShowActivity : BaseActivity() {
     internal var type = "BasePinchImageView"
@@ -26,7 +26,13 @@ class ImageViewShowActivity : BaseActivity() {
                 basePinchImageView.visibility = View.VISIBLE
                 basePinchImageView.setImageResource(R.mipmap.timo)
             }
+            "BaseCircleImageView"->{
+                titleLayout.setDefault("BaseCircleImageView")
+                baseCircleImageView.visibility = View.VISIBLE
+                baseCircleImageView.setImageResource(R.mipmap.timo)
+            }
         }
+        titleLayout.setStatuBarView()
     }
 
     override fun getData() {

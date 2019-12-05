@@ -19,7 +19,7 @@ import java.util.Queue;
  * ImageView 控件，实现了手势放大缩小，
  * 平移等功能。PinchImageView 继承于 ImageView，
  * 可以在所有 ImageView 可以使用的情况下使用
- * Created by lixingxing on 2019/6/28.
+ * @author Lixingxing
  */
 public class BasePinchImageView extends ImageView  {
 

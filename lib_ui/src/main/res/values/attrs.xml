@@ -1,17 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--标题-->
+    <!--BaseTitleLayout标题-->
     <declare-styleable name="BaseTitleLayout">
-        <attr name="titleBackground" format="reference|color"/>
+        <!--左边图片 默认是返回-->
+        <attr name="titleBackResource" format="reference"/>
         <!--状态栏背景图片/颜色-->
         <attr name="titleStatusBackground" format="reference|color"/>
+        <!--状态栏背景是否和 BaseTitleLayout 的background一样-->
+        <attr name="titleStatusFromBackground" format="boolean"/>
+        <!-- 是否显示返回-->
+        <attr name="titleLeftBackVisible" format="boolean"/>
         <!--是否显示文字-->
         <attr name="titleTextVisible" format="boolean"/>
         <!--标题文字内容-->
         <attr name="titleText" format="string"/>
-        <!-- 是否显示返回-->
-        <attr name="titleLeftBackVisible" format="boolean"/>
+        <!--文字颜色 -->
+        <attr name="titleTextColor" format="color"/>
     </declare-styleable>
+
+    <!--BaseItemLayout 条目展示-->
+    <declare-styleable name="BaseItemLayout">
+        <!--左边图片 -->
+        <attr name="item_leftImageResource" format="reference"/>
+        <!--右边图片 -->
+        <attr name="item_rightImageResource" format="reference"/>
+        <!--文字内容-->
+        <attr name="item_text" format="string"/>
+        <!--文字颜色 -->
+        <attr name="item_textColor" format="color"/>
+
+        <!-- 是否显示第二段文字-->
+        <attr name="item_text2Visible" format="boolean"/>
+
+
+    </declare-styleable>
+
+    <!--                                       ImageView                                 -->
+
+    <!-- 圆形的imageView -->
+    <declare-styleable name="BaseCircleImageView">
+        <attr name="border_widths" format="dimension" />
+        <attr name="border_colors" format="color" />
+    </declare-styleable>
+    <!-- Android 圆角、圆形 ImageView -->
+    <declare-styleable name="BaseNiceImageView">
+        <attr name="is_circle" format="boolean" />
+        <attr name="is_cover_src" format="boolean" />
+        <attr name="corner_radius" format="dimension" />
+        <attr name="corner_top_left_radius" format="dimension" />
+        <attr name="corner_top_right_radius" format="dimension" />
+        <attr name="corner_bottom_left_radius" format="dimension" />
+        <attr name="corner_bottom_right_radius" format="dimension" />
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="inner_border_width" format="dimension" />
+        <attr name="inner_border_color" format="color" />
+        <attr name="mask_color" format="color" />
+    </declare-styleable>
+
 
 
 
@@ -70,5 +116,22 @@
         <attr name="stroke_color" />
         <attr name="stroke_width" />
         <attr name="clip_background" />
+    </declare-styleable>
+
+
+    <!-- 图标+文字 -->
+    <declare-styleable name="IconLayout">
+        <attr name="icon_src" format="reference" />
+        <attr name="icon_src_press" format="reference" />
+        <attr name="icon_text" format="string"/>
+        <attr name="icon_text_color" format="color" />
+        <attr name="icon_text_size" format="dimension" />
+        <attr name="icon_spacing" format="dimension" />
+        <attr name="icon_location">                     <!-- 控制图标的位置 -->
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+            <enum name="top" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
     </declare-styleable>
 </resources>

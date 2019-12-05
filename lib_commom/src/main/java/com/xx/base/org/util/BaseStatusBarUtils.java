@@ -24,8 +24,6 @@ import java.util.regex.Pattern;
  * 状态栏透明
  * Created by SCWANG on 2016/10/26.
  */
-
-@SuppressWarnings("unused")
 public class BaseStatusBarUtils {
     public static int DEFAULT_COLOR = Color.parseColor("#ffffff");
     public static float DEFAULT_ALPHA = 0;//Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? 0.2f : 0.3f;
@@ -75,38 +73,27 @@ public class BaseStatusBarUtils {
             window.getDecorView().setSystemUiVisibility(systemUiVisibility);
         }
     }
-    //</editor-fold>
-
-    //<editor-fold desc="DarkMode">
-    public static void darkMode(Activity activity, boolean dark) {
-        if (isFlyme4Later()) {
-            darkModeForFlyme4(activity.getWindow(), dark);
-        } else if (isMIUI6Later()) {
-            darkModeForMIUI6(activity.getWindow(), dark);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            darkModeForM(activity.getWindow(), dark);
-        }
-    }
 
     /** 设置状态栏darkMode,字体颜色及icon变黑(目前支持MIUI6以上,Flyme4以上,Android M以上) */
     public static void darkMode(Activity activity) {
-        darkMode(activity.getWindow(), DEFAULT_COLOR, DEFAULT_ALPHA);
+        darkMode(activity, true);
     }
-
-    public static void darkMode(Activity activity, int color, @FloatRange(from = 0.0, to = 1.0) float alpha) {
-        darkMode(activity.getWindow(), color, alpha);
+    public static void darkMode(Activity activity, boolean dark) {
+        darkMode(activity, DEFAULT_COLOR, DEFAULT_ALPHA,dark);
     }
-
+    public static void darkMode(Activity activity, int color, @FloatRange(from = 0.0, to = 1.0) float alpha,boolean dark) {
+        darkMode(activity.getWindow(), color, alpha,dark);
+    }
     /** 设置状态栏darkMode,字体颜色及icon变黑(目前支持MIUI6以上,Flyme4以上,Android M以上) */
-    public static void darkMode(Window window, int color, @FloatRange(from = 0.0, to = 1.0) float alpha) {
+    public static void darkMode(Window window, int color, @FloatRange(from = 0.0, to = 1.0) float alpha,boolean dark) {
         if (isFlyme4Later()) {
-            darkModeForFlyme4(window, true);
+            darkModeForFlyme4(window, dark);
             immersive(window,color,alpha);
         } else if (isMIUI6Later()) {
-            darkModeForMIUI6(window, true);
+            darkModeForMIUI6(window, dark);
             immersive(window,color,alpha);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            darkModeForM(window, true);
+            darkModeForM(window, dark);
             immersive(window, color, alpha);
         } else if (Build.VERSION.SDK_INT >= 19) {
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);

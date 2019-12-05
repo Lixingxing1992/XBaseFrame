@@ -1,17 +1,15 @@
 package com.xbase.baseframe.org.base;
 
-import com.xx.base.org.BaseApplication;
-import com.xx.base.project.base.ProBaseUtils;
+import com.xx.base.project.base.ProBaseApplication;
 
 /**
- * Created by lixingxing on 2019/4/16.
+ * @author Lixingxing
  */
-public class MyApplication extends BaseApplication {
+public class MyApplication extends ProBaseApplication {
 
     @Override
     public void onCreate() {
         super.onCreate();
-        ProBaseUtils.getInstance(getApplicationContext()).init();
     }
 
 }

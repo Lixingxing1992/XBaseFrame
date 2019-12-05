@@ -8,13 +8,15 @@ import com.xx.base.org.util.BaseUtils;
  * Created by lixingxing on 2019/4/24.
  */
 public class BaseApplication extends Application {
+    private static Application app;
+
+    public static Application getInstance(){
+        return app;
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        // 初始化全局基础工具类
-        BaseUtils.init(getApplicationContext());
-        // 初始化nosql数据库
-        BaseLocalDbUtils.init(getApplicationContext());
+        app = this;
     }
 }

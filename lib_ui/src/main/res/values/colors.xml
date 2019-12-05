@@ -3,4 +3,9 @@
     <color name="colorPrimary">#ff9480</color>
     <color name="colorPrimaryDark">#ff9480</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!--通用标题头背景色-->
+    <color name="BaseTitleLayout_background">#008577</color>
+    <!--通用标题头状态栏背景色-->
+    <color name="BaseTitleLayout_statu_background">#008577</color>
 </resources>

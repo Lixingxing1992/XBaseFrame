@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+    <include android:id="@+id/titleLayout"
+             android:visibility="gone"
+             layout="@layout/default_title"/>
+    <FrameLayout
+            android:id="@+id/default_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/titleLayout">
+        <ViewStub
+                android:id="@+id/viewStubTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+    </FrameLayout>
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refreshLayout"
+            style="@style/style_page_bg"
+            app:srlEnableAutoLoadMore="false"
+            app:srlEnableScrollContentWhenLoaded="true"
+            app:srlEnableLoadMoreWhenContentNotFull="true"
+            app:srlDragRate="0.5"
+            app:srlFooterHeight="@dimen/dp_100"
+            app:srlFooterMaxDragRate="2.0"
+            app:srlHeaderHeight="@dimen/dp_100"
+            app:srlHeaderMaxDragRate="2.0"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    <FrameLayout
+            android:id="@+id/default_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <ViewStub
+                android:id="@+id/ViewStub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+    </FrameLayout>
+</LinearLayout>

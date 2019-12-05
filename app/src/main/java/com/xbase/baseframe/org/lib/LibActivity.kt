@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * 基础库
+ * @author Lixingxing
  */
 class LibActivity : AppCompatActivity() {
     var funcList = arrayListOf<FuncModel>(
