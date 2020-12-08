@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ff9480</color>
-    <color name="colorPrimaryDark">#ff9480</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#ffc600</color>
+    <color name="colorPrimaryDark">#ffc600</color>
+    <color name="colorAccent">#ffc600</color>
 
     <!--通用标题头背景色-->
-    <color name="BaseTitleLayout_background">#008577</color>
+    <color name="BaseTitleLayout_background">#ffc600</color>
     <!--通用标题头状态栏背景色-->
-    <color name="BaseTitleLayout_statu_background">#008577</color>
+    <color name="BaseTitleLayout_statu_background">#ffc600</color>
 </resources>

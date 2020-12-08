@@ -2,6 +2,7 @@ package com.xx.base.ui.viewgroup
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.support.v4.content.ContextCompat
@@ -36,6 +37,8 @@ class BaseTitleLayout @JvmOverloads constructor(
     var titleTextVisible = true
     // 标题文字内容
     var titleText = ""
+    // 标题文字颜色
+    var titleTextColor = Color.WHITE
     // 左边返回按钮是否显示
     var titleLeftBackVisible = true
     // 左边返回按钮图片控件
@@ -57,7 +60,9 @@ class BaseTitleLayout @JvmOverloads constructor(
                 titleTextVisible = typedArray.getBoolean(attr, titleTextVisible)
             } else if (attr == R.styleable.BaseTitleLayout_titleText) {
                 titleText = typedArray.getString(attr) ?: ""
-            } else if (attr == R.styleable.BaseTitleLayout_titleLeftBackVisible) {
+            } else if(attr == R.styleable.BaseTitleLayout_titleTextColor){
+                titleTextColor = typedArray.getColor(attr,titleTextColor)
+            }else if (attr == R.styleable.BaseTitleLayout_titleLeftBackVisible) {
                 // 左边返回按钮是否显示
                 titleLeftBackVisible = typedArray.getBoolean(attr, titleLeftBackVisible)
             } else if (attr == R.styleable.BaseTitleLayout_titleStatusFromBackground) {
@@ -94,6 +99,7 @@ class BaseTitleLayout @JvmOverloads constructor(
 
     fun initSetting() {
         layout_title_text.text = titleText
+        layout_title_text.setTextColor(titleTextColor)
         if (titleTextVisible) {
             layout_title_text.visibility = View.VISIBLE
         } else {

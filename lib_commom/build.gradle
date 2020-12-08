@@ -43,7 +43,6 @@ dependencies {
 //    api project(path: ':lib_http')
     // 网络请求框架
 //    api 'com.github.Lixingxing1992:XBaseHttpUtils:v1.0-beta14'
-
     // 图片加载库 glide
     api 'com.github.bumptech.glide:glide:4.8.0'
     kapt 'com.github.bumptech.glide:compiler:4.8.0'
@@ -57,5 +56,5 @@ dependencies {
     api 'com.lxj:xpopup:1.8.6'
 
     // 二维码扫码识别
-    api 'com.github.yuzhiqiang1993:zxing:2.2.5'
+//    api 'com.github.yuzhiqiang1993:zxing:2.2.5'
 }

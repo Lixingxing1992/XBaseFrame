@@ -38,7 +38,6 @@ public abstract class BaseActivity extends AppCompatActivity{
     }
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-//        BaseActivityHook.hookOrientation(this);
         super.onCreate(savedInstanceState);
         this.savedInstanceState = savedInstanceState;
         initStatuBar();
